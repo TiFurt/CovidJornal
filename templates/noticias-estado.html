@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
     {% for noticia in noticias %}
         <div class="col">
-            <div class="card">
+            <div class="card h-100">
                 <img class="card-img-top" src="{{ noticia.get_imagem() }}" alt="Imagem de capa do card">
                 <div class="card-body">
                     <h5 class="card-title">{{ noticia.get_titulo() }}</h5>

@@ -8,6 +8,7 @@ class Noticia:
         self.__estado = estado
         self.__imagem = imagem
         self.__data = data
+        self.__curtidas = 0
 
     def get_id(self):
         return self.__id
@@ -29,3 +30,9 @@ class Noticia:
 
     def get_data(self):
         return self.__data
+
+    def add_curtida(self):
+        self.__curtidas += 1
+
+    def get_curtidas(self):
+        return self.__curtidas
