@@ -11,5 +11,5 @@ estado_dao = EstadoDao()
 def noticias_do_estado(uf):
     for estado in estado_dao.listar_estados():
         if estado_dao.listar_estados()[estado].get_uf() == uf.upper() and estado_dao.listar_estados()[estado].get_noticias() != []:
-            return render_template("noticias-estado.html", noticias=estado_dao.listar_estados()[estado].get_noticias(), estados=estado_dao.listar_estados())
+            return render_template("noticias-estado.html", noticias=estado_dao.listar_estados()[estado].get_noticias(), estados=estado_dao.listar_estados(), estado=estado_dao.listar_estados()[estado])
     return render_template("home.html", estados=estado_dao.listar_estados(), noticias=noticia_dao.listar_noticias())

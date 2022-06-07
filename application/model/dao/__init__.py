@@ -1,12 +1,13 @@
 from application.model.entity.noticia import Noticia
 from application.model.entity.estado import Estado
+from application.model.entity.comentario import Comentario
 
 
 
 def bubble_sort(lista):
     for i in range(len(lista)):
         for j in range(len(lista) - 1):
-            if lista[j].get_curtidas() < lista[j + 1].get_curtidas():
+            if lista[j].get_like() < lista[j + 1].get_like():
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
     return lista
 
@@ -253,7 +254,11 @@ lista_noticias = [
             "01/04/2022"),
 ]
 
-
+lista_noticias[0].add_comentario(Comentario(1, "Tiago",'example@example.com', "mtt bom", True))
+lista_noticias[0].add_comentario(Comentario(2, "Tiago",'example@example.com', "mtt bom", True))
+lista_noticias[0].add_comentario(Comentario(3, "Tiago",'example@example.com', "mtt bom", True))
+lista_noticias[0].add_comentario(Comentario(4, "Tiago",'example@example.com', "mtt bom", True))
+lista_noticias[0].add_comentario(Comentario(5, "Tiago",'example@example.com', "mtt bom", True))
 
 for noticia in lista_noticias:
     estados[noticia.get_estado().get_uf()].set_noticia(noticia)

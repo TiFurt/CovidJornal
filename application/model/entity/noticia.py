@@ -8,7 +8,10 @@ class Noticia:
         self.__estado = estado
         self.__imagem = imagem
         self.__data = data
-        self.__curtidas = 0
+        self.__like = 0
+        self.__dislike = 0
+        self.__visualizacoes = 0
+        self.__comentarios = []
 
     def get_id(self):
         return self.__id
@@ -31,8 +34,34 @@ class Noticia:
     def get_data(self):
         return self.__data
 
-    def add_curtida(self):
-        self.__curtidas += 1
+    def add_like(self):
+        self.__like += 1
 
-    def get_curtidas(self):
-        return self.__curtidas
+    def get_like(self):
+        comment_like = 0
+        for comentario in self.__comentarios:
+            if comentario.get_curtida():
+                comment_like += 1
+        return self.__like + comment_like
+
+    def add_dislike(self):
+        self.__dislike += 1
+
+    def get_dislike(self):
+        comment_dislike = 0
+        for comentario in self.__comentarios:
+            if not comentario.get_curtida():
+                comment_dislike += 1
+        return self.__dislike + comment_dislike
+
+    def add_comentario(self, comentario):
+        self.__comentarios.append(comentario)
+
+    def get_comentarios(self):
+        return self.__comentarios
+
+    def add_visualizacao(self):
+        self.__visualizacoes += 1
+
+    def get_visualizacoes(self):
+        return self.__visualizacoes
